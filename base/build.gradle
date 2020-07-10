@@ -27,10 +27,17 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     def depend = rootProject.ext.dependencie
+
     api depend.kotlinlib
     api depend.androidx.ktx
     api depend.androidx.appcompat
     api depend.androidx.constraintlayout
     api depend.androidx.startup
+
+    api depend.retrofit2.retrofit
+    api depend.retrofit2.gson
+
+    api depend.coroutlines.core
+    api depend.coroutlines.android
 }
 
