@@ -1,9 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/splash_background"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/splash_title"
+        android:layout_marginTop="60dp"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/splash_title"
+        android:layout_width="300dp"
+        android:layout_height="300dp"/>
+
+    <TextView
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/splash_title"
+        android:text="@string/splash_wel"
+        android:textColor="@color/colorWrite"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:id="@+id/btn_start"
+        android:background="@drawable/splash_text"
+        android:text="@string/splash_text"
+        android:textColor="@color/colorWrite"
+        android:layout_marginBottom="80dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>
