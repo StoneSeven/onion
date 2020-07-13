@@ -1,0 +1,11 @@
+<resources>
+
+    <string name="radio_podcast">Podcast</string>
+
+    <string-array name="radio_title">
+        <item>story</item>
+        <item>universe</item>
+        <item>machine</item>
+        <item>silence</item>
+    </string-array>
+</resources>

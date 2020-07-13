@@ -21,6 +21,7 @@ ext{
             retrofit_version            : "2.6.0",
             core_version                : "1.0.0",
             coroutineadapt              : "0.9.2",
+            material                    : "1.0.0"
     ]
 
     dependencie = [
@@ -29,7 +30,8 @@ ext{
                     ktx                : "androidx.core:core-ktx:${depVersion.ktx_version}",
                     appcompat          : "androidx.appcompat:appcompat:${depVersion.appcompat_version}",
                     constraintlayout   : "androidx.constraintlayout:constraintlayout:${depVersion.constraintlayout_version}",
-                    startup            : "androidx.startup:startup-runtime:${depVersion.startup_version}"
+                    startup            : "androidx.startup:startup-runtime:${depVersion.startup_version}",
+                    material           : "com.google.android.material:material:${depVersion.material}"
             ],
             retrofit2 : [
                     retrofit            :"com.squareup.retrofit2:retrofit:${depVersion.retrofit_version}",

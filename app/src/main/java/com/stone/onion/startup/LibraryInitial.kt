@@ -2,8 +2,7 @@ package com.stone.onion.startup
 
 import android.content.Context
 import androidx.startup.Initializer
-import com.stone.base.util.LogUtil
-import java.util.*
+import com.stone.common.util.LogUtil
 
 class LibraryInitial : Initializer<LibraryInitial> {
 

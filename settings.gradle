@@ -1,2 +1,3 @@
+include ':radio'
 include ':app',':base'
 rootProject.name = "Onion"
