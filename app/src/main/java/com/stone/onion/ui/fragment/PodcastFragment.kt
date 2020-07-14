@@ -10,9 +10,9 @@ import com.stone.common.base.BaseFragment
 import com.stone.common.util.StatusUtil
 import com.stone.onion.R
 import com.stone.radio.fragment.MechineFragment
-import com.stone.radio.fragment.QuinetFragment
-import com.stone.radio.fragment.UniverseFragment
 import com.stone.radio.fragment.SilenceFragment
+import com.stone.radio.fragment.UniverseFragment
+import com.stone.radio.fragment.StoryFragment
 import kotlinx.android.synthetic.main.fragment_podcast.*
 
 class PodcastFragment : BaseFragment() {
@@ -43,10 +43,10 @@ class PodcastFragment : BaseFragment() {
 
         mFrags = arrayListOf()
 
-        mFrags.add(SilenceFragment())
+        mFrags.add(StoryFragment())
         mFrags.add(UniverseFragment())
         mFrags.add(MechineFragment())
-        mFrags.add(QuinetFragment())
+        mFrags.add(SilenceFragment())
 
         radioVp.adapter = object : FragmentPagerAdapter(activity!!.supportFragmentManager) {
 

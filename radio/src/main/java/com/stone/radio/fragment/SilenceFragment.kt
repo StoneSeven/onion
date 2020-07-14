@@ -14,6 +14,6 @@ import com.stone.radio.R
 class SilenceFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_story, container, false)
+        return inflater.inflate(R.layout.fragment_silence, container, false)
     }
 }

@@ -12,8 +12,8 @@ import java.util.*
  */
 class LogIntercepter : Interceptor {
 
-    val tag = "LogIntercepter:"
-    val format = SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS")
+    private val tag = "LogIntercepter:"
+    private val format = SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS")
 
     override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain.request()

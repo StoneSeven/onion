@@ -10,12 +10,9 @@ import com.stone.onion.ui.fragment.ThreeFragment
 import com.stone.onion.ui.fragment.TwoFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
-import kotlin.collections.ArrayList
 
 class MainActivity : BaseActivity() {
 
-
-    //Fragment 栈管理
     private val mStack = Stack<Fragment>()
     private val mPodcastFragment by lazy { PodcastFragment() }
     private val mTwoFragment by lazy { TwoFragment() }
