@@ -1,30 +1,36 @@
 package com.stone.onion.ui.fragment
 
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentPagerAdapter
-import com.stone.common.base.BaseActivity
+import com.stone.common.base.BaseFragment
 import com.stone.common.util.StatusUtil
 import com.stone.onion.R
 import com.stone.radio.fragment.MechineFragment
 import com.stone.radio.fragment.QuinetFragment
 import com.stone.radio.fragment.UniverseFragment
 import com.stone.radio.fragment.SilenceFragment
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_podcast.*
 
-class PodcastFragment : BaseActivity() {
+class PodcastFragment : BaseFragment() {
 
     private lateinit var mTitle:ArrayList<String>
     private lateinit var mFrags:ArrayList<Fragment>
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.fragment_podcast, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         init()
     }
 
     override fun initView() {
-        StatusUtil.setLightStatusBar(this,true)
+        StatusUtil.setLightStatusBar(activity!!,true)
         mTitle = arrayListOf()
         var titleList = resources.getStringArray(R.array.radio_title)
         for (title in titleList){
@@ -42,7 +48,7 @@ class PodcastFragment : BaseActivity() {
         mFrags.add(MechineFragment())
         mFrags.add(QuinetFragment())
 
-        radioVp.adapter = object : FragmentPagerAdapter(supportFragmentManager) {
+        radioVp.adapter = object : FragmentPagerAdapter(activity!!.supportFragmentManager) {
 
             override fun getItem(position: Int): Fragment {
                 return mFrags[position]

@@ -2,64 +2,74 @@ package com.stone.onion.ui.avtivity
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentPagerAdapter
 import com.stone.common.base.BaseActivity
-import com.stone.common.util.StatusUtil
 import com.stone.onion.R
-import com.stone.radio.fragment.MechineFragment
-import com.stone.radio.fragment.QuinetFragment
-import com.stone.radio.fragment.UniverseFragment
-import com.stone.radio.fragment.SilenceFragment
+import com.stone.onion.ui.fragment.FourFragment
+import com.stone.onion.ui.fragment.PodcastFragment
+import com.stone.onion.ui.fragment.ThreeFragment
+import com.stone.onion.ui.fragment.TwoFragment
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 class MainActivity : BaseActivity() {
 
-    private lateinit var mTitle:ArrayList<String>
-    private lateinit var mFrags:ArrayList<Fragment>
+
+    //Fragment 栈管理
+    private val mStack = Stack<Fragment>()
+    private val mPodcastFragment by lazy { PodcastFragment() }
+    private val mTwoFragment by lazy { TwoFragment() }
+    private val mThreeFragment by lazy { ThreeFragment() }
+    private val mFourFragment by lazy { FourFragment() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         init()
-    }
-
-    override fun initView() {
-        StatusUtil.setLightStatusBar(this,true)
-        mTitle = arrayListOf()
-        var titleList = resources.getStringArray(R.array.radio_title)
-        for (title in titleList){
-            mTitle.add(title)
-            radioTab.addTab(radioTab.newTab().setText(title));
-        }
+        changeFragment(0)
     }
 
     override fun initData(){
 
-        mFrags = arrayListOf()
+        val manager = supportFragmentManager.beginTransaction()
+        manager.add(R.id.mContaier,mPodcastFragment)
+        manager.add(R.id.mContaier,mTwoFragment)
+        manager.add(R.id.mContaier,mThreeFragment)
+        manager.add(R.id.mContaier,mFourFragment)
+        manager.commit()
 
-        mFrags.add(SilenceFragment())
-        mFrags.add(UniverseFragment())
-        mFrags.add(MechineFragment())
-        mFrags.add(QuinetFragment())
+        mStack.add(mPodcastFragment)
+        mStack.add(mTwoFragment)
+        mStack.add(mThreeFragment)
+        mStack.add(mFourFragment)
 
-        radioVp.adapter = object : FragmentPagerAdapter(supportFragmentManager) {
 
-            override fun getItem(position: Int): Fragment {
-                return mFrags[position]
+        bnvMenu.setOnNavigationItemSelectedListener { menu ->
+            when(menu.itemId){
+                R.id.item_bottom_1 -> {
+                    changeFragment(0)
+                }
+                R.id.item_bottom_2 -> {
+                    changeFragment(1)
+                }
+                R.id.item_bottom_3 -> {
+                    changeFragment(2)
+                }
+                R.id.item_bottom_4 -> {
+                    changeFragment(3)
+                }
             }
-
-            override fun getCount(): Int {
-                return mFrags.size
-            }
-
-            override fun getPageTitle(position: Int): CharSequence? {
-                return mTitle[position]
-            }
+            true
         }
+    }
 
-        radioVp.offscreenPageLimit = mFrags.size
-
-        radioTab.setupWithViewPager(radioVp)
+    private fun changeFragment(position: Int) {
+        val manager = supportFragmentManager.beginTransaction()
+        for (fragment in mStack){
+            manager.hide(fragment)
+        }
+        manager.show(mStack[position])
+        manager.commit()
     }
 
 }

@@ -15,4 +15,17 @@ open class BaseFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return super.onCreateView(inflater, container, savedInstanceState)
     }
+
+    protected open fun init() {
+        initView()
+        initData()
+    }
+
+    protected open fun initView() {
+
+    }
+
+    protected open fun initData() {
+
+    }
 }

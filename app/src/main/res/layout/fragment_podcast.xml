@@ -6,22 +6,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <FrameLayout
-        android:id="@+id/mContaier"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"/>
+    <TextView
+        android:textColor="@color/colorBlack"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="20dp"
+        android:text="@string/radio_podcast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bnvMenu"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/radioTab"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        app:itemBackground="@color/colorPrimary"
-        app:itemIconTint="@drawable/select_bottom_color"
-        app:itemTextColor="@color/colorAccent"
-        app:menu="@menu/menu_bottom"
-        />
+        app:tabBackground="@color/colorPrimary"
+        app:tabIndicatorColor="@color/colorAccent"
+        app:tabSelectedTextColor="@color/colorAccent"
+        app:tabTextColor="@color/colorText" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/radioVp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
 </LinearLayout>
 
