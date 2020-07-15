@@ -6,4 +6,6 @@
 
     <color name="colorWrite">#FFFFFF</color>
     <color name="colorText">#939393</color>
+
+    <color name="colorPink">#EDBDBA</color>
 </resources>

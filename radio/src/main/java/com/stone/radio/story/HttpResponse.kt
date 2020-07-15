@@ -45,7 +45,7 @@ data class Dj(
     val backgroundImgId: Long,
     val backgroundImgIdStr: String,
     val backgroundUrl: String,
-    val birthday: Int,
+    val birthday: Long,
     val brand: String,
     val city: Int,
     val defaultAvatar: Boolean,

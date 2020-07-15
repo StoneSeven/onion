@@ -14,6 +14,7 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bnvMenu"
+        android:layout_marginBottom="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
@@ -24,33 +25,3 @@
         />
 
 </LinearLayout>
-
-
-    <!--            <com.google.android.material.card.MaterialCardView-->
-    <!--                android:layout_width="80dp"-->
-    <!--                android:layout_height="90dp"-->
-    <!--                android:elevation="15dp"-->
-    <!--                android:layout_margin="10dp"-->
-    <!--                app:cardCornerRadius="18dp">-->
-
-    <!--                <LinearLayout-->
-    <!--                    android:gravity="center_horizontal"-->
-    <!--                    android:orientation="vertical"-->
-    <!--                    android:layout_width="match_parent"-->
-    <!--                    android:layout_height="match_parent">-->
-
-    <!--                    <ImageView-->
-    <!--                        android:src="@mipmap/main_podcast"-->
-    <!--                        android:layout_width="wrap_content"-->
-    <!--                        android:layout_height="wrap_content"/>-->
-
-
-    <!--                    <TextView-->
-    <!--                        android:text="@string/app_name"-->
-    <!--                        android:layout_width="wrap_content"-->
-    <!--                        android:layout_height="wrap_content"/>-->
-
-    <!--                </LinearLayout>-->
-
-
-    <!--            </com.google.android.material.card.MaterialCardView>-->

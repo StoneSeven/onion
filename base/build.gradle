@@ -40,5 +40,7 @@ dependencies {
 
     api depend.coroutlines.core
     api depend.coroutlines.android
+
+    api depend.glide
 }
 

@@ -15,6 +15,6 @@ interface ApiService {
     }
 
     // story fm
-    @GET("type=djradio&id=350038649&offset=2&limit=3")
+    @GET("?type=djradio&id=350038649&limit=20")
     fun getStoryList(): Call<HttpResponse>
 }

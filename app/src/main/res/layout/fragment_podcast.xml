@@ -18,8 +18,7 @@
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/radioTab"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_margin="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:tabBackground="@color/colorPrimary"
