@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.stone.radio.R
@@ -32,6 +31,7 @@ class StoryListAdapter(private val dataList: List<Program>, private val context:
         var program = dataList[position]
         Glide.with(context).load(program.coverUrl).into(holder.itemIv)
         holder.itemTv.text = program.name
+        holder.itemTv.isSelected = true
         if (mOnItemClickListener != null) {
             holder.itemView.setOnClickListener {
                 val position = holder.layoutPosition // 1
