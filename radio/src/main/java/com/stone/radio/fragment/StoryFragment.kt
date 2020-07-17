@@ -4,18 +4,24 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.stone.common.base.BaseData
 import com.stone.common.base.BaseFragment
 import com.stone.common.util.LogUtil
 import com.stone.radio.R
 import com.stone.radio.http.RequestRadioManager
+import com.stone.radio.story.HttpResponse
 import com.stone.radio.story.Program
 import com.stone.radio.story.StoryListAdapter
+import com.stone.radio.story.StoryModel
 import kotlinx.android.synthetic.main.fragment_story.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
+
 
 /**
  *   created by stone
@@ -41,22 +47,10 @@ class StoryFragment : BaseFragment() {
     }
 
     override fun initData() {
-        GlobalScope.launch(Dispatchers.Main) {
-            try{
-                val deferred = async(Dispatchers.IO) {
-                    // network request
-                    RequestRadioManager.apiService().getStoryList().execute()
-                }
-                val response = deferred.await()
-                if(response!!.isSuccessful){
-                    LogUtil.i("response success " + response.body()?.code)
-                    recycleStory.adapter = StoryListAdapter(response.body()!!.programs, activity!!)
-                }else{
-                   LogUtil.i("response fail")
-                }
-            }catch(e: Throwable){
-                LogUtil.i("response error " + e.message)
-            }
-        }
+        val model = ViewModelProviders.of(this).get(StoryModel::class.java)
+        model.getStoryData().observe(this, Observer<BaseData<HttpResponse>>{ response ->
+            // update UI
+            recycleStory.adapter = StoryListAdapter(response.mData.programs, activity!!)
+        })
     }
 }

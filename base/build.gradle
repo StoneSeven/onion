@@ -33,6 +33,7 @@ dependencies {
     api depend.androidx.appcompat
     api depend.androidx.constraintlayout
     api depend.androidx.startup
+    api depend.androidx.lifecycle
     api depend.androidx.material
 
     api depend.retrofit2.retrofit
