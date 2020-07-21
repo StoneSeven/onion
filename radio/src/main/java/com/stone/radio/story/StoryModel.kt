@@ -3,6 +3,7 @@ package com.stone.radio.story
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.stone.common.base.BaseData
 import com.stone.common.util.LogUtil
 import com.stone.radio.http.RequestRadioManager
@@ -28,7 +29,7 @@ class StoryModel : ViewModel() {
     }
 
     private fun loadStoryData(){
-        GlobalScope.launch(Dispatchers.Main) {
+        viewModelScope.launch(Dispatchers.Main) {
             try{
                 val deferred = async(Dispatchers.IO) {
                     RequestRadioManager.apiService().getStoryList().execute()
